@@ -1,6 +1,7 @@
 <template>
+  <div>
+  <div style="text-align: center;margin: 20px; color:red">使用前请替换成自己的apikey</div>
   <div id="app">
-    <div>使用前请替换成自己的apikey</div>
     <div class="each-map">
       <p>使用起始点的方式绘制地图</p>
       <HereMapOriginDest
@@ -9,7 +10,7 @@
           :coordinate="lagLng"
           :zoom="zoom"
       />
-      <p>此方法的缺点是，仅知道起始点，实际路线也许和推荐的绘制的路线不一致</p>
+      <p class="note">此方法的缺点是，仅知道起始点，实际路线也许和推荐的绘制的路线不一致</p>
     </div>
     <div class="each-map">
       <p>使用waypoint的方式</p>
@@ -19,10 +20,11 @@
           :coordinate="lagLng"
           :zoom="zoom"
       />
-      <p>此方法的缺点是，需要去使用付费的定位纠偏，否则如果定位有偏差，就会根据有偏差的点去绘制。</p>
-      <p>（即，代码会按照坐标依次绘制，就会造成所有的点都会通过）</p>
+      <p class="note">此方法的缺点是，需要去使用付费的定位纠偏，否则如果定位有偏差，就会根据有偏差的点去绘制。</p>
+      <p class="note">（即，代码会按照坐标依次绘制，就会造成所有的点都会通过）</p>
     </div>
 
+  </div>
   </div>
 </template>
 
@@ -100,5 +102,8 @@ export default {
 .each-map p {
   height: 3vh;
   margin: 0;
+}
+.each-map .note{
+  margin-top: 30px;
 }
 </style>
